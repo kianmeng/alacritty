@@ -39,7 +39,7 @@ pub fn builtin_glyph(
 fn box_drawing(character: char, metrics: &Metrics, offset: &Delta<i8>) -> RasterizedGlyph {
     let height = (metrics.line_height as i32 + offset.y as i32) as usize;
     let width = (metrics.average_advance as i32 + offset.x as i32) as usize;
-    // Use one eight of the cell width, since this is used as a step size for block elemenets.
+    // Use one eight of the cell width, since this is used as a step size for block elements.
     let stroke_size = cmp::max((width as f32 / 8.).round() as usize, 1);
     let heavy_stroke_size = stroke_size * 2;
 
@@ -701,9 +701,9 @@ impl Canvas {
     /// `Canvas` coordinate system.
     fn draw_ellipse_arc(&mut self, stroke_size: usize) {
         fn colors_with_error(error: f32, max_transparancy: f32) -> (Pixel, Pixel) {
-            let transparancy = error * max_transparancy;
-            let alpha_1 = 1. - transparancy;
-            let alpha_2 = 1. - (max_transparancy - transparancy);
+            let transparency = error * max_transparancy;
+            let alpha_1 = 1. - transparency;
+            let alpha_2 = 1. - (max_transparancy - transparency);
             let color_1 = Pixel::gray((COLOR_FILL._r as f32 * alpha_1) as u8);
             let color_2 = Pixel::gray((COLOR_FILL._r as f32 * alpha_2) as u8);
             (color_1, color_2)

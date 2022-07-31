@@ -928,7 +928,7 @@ impl Display {
         // Update IME position.
         self.window.update_ime_position(ime_position, &self.size_info);
 
-        // Frame event should be requested before swaping buffers, since it requires surface
+        // Frame event should be requested before swapping buffers, since it requires surface
         // `commit`, which is done by swap buffers under the hood.
         #[cfg(all(feature = "wayland", not(any(target_os = "macos", windows))))]
         self.request_frame(&self.window);
@@ -1246,7 +1246,7 @@ impl Display {
         }
     }
 
-    /// Requst a new frame for a window on Wayland.
+    /// Request a new frame for a window on Wayland.
     #[inline]
     #[cfg(all(feature = "wayland", not(any(target_os = "macos", windows))))]
     fn request_frame(&self, window: &Window) {

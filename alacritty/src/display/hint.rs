@@ -689,7 +689,7 @@ mod tests {
         let term = mock_term(&content);
         let regex = RegexSearch::new("match!").unwrap();
 
-        // The interator should match everything in the viewport.
+        // The iterator should match everything in the viewport.
         assert_eq!(visible_regex_match_iter(&term, &regex).count(), 4096);
     }
 }
